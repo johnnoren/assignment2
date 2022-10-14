@@ -1,0 +1,15 @@
+// TODO Use the clock solution I found in order to test stuff correctly:
+
+Man skickar en klocka som inparameter till metoden som ska testas.
+
+Kod i metoden som ska testas ska använda följande som dagens datum (och få clock som inparameter):
+LocalDate.now(clock);
+
+Kod i andra delar av programmet (inte testklassen) som anropar den metoden ska skicka en klocka som går rätt:
+Clock clock = Clock.systemDefaultZone();
+
+Kod i testklassen ska skicka en klocka som är låst till datumet då testet skapades (eller vad man nu vill låtsas att det är för datum):
+LocalDate testDate = LocalDate.of(2022,10,15);
+Clock clock = Clock.fixed(testDate.atStartOfDay(ZoneId.systemDefault()).toInstant(),ZoneId.systemDefault());
+
+På så vis spelar det ingen roll att tiden går. Testet blir låst i tiden eftersom det använder en stillastående klocka medan resten av programmet använder den riktiga klockan.

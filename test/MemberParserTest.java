@@ -1,3 +1,7 @@
+import main.IdentityNumber;
+import main.Member;
+import main.MemberParser;
+import main.Name;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -32,7 +36,7 @@ class MemberParserTest {
 		members.add(new Member(new IdentityNumber(8505132345L), new Name("Per Persson"),
 				LocalDate.parse("2019-12-29")));
 		// When
-		List<Member> actualMembers = memberParser.parse()
+		List<Member> actualMembers = memberParser.parseFrom()
 												 .collect(Collectors.toList());
 		// Then
 		assertIterableEquals(members, actualMembers);

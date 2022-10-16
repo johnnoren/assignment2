@@ -1,3 +1,4 @@
+import main.Name;
 import org.junit.jupiter.api.Test;
 
 public class NameTest {

@@ -1,31 +1,25 @@
+package main;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Member implements Person {
+public class Member {
 
 	private final Name name;
 	private final IdentityNumber identityNumber;
 	private final LocalDate lastPaymentDate;
 
-	private Member(IdentityNumber identityNumber, Name name, LocalDate lastPaymentDate) {
+	public Member( IdentityNumber identityNumber, Name name, LocalDate lastPaymentDate) {
 		this.name = name;
 		this.identityNumber = identityNumber;
 		this.lastPaymentDate = lastPaymentDate;
 	}
 
-	public Member create(String name, String identityNumber, String lastPaymentDate) {
-		var parsedName = new Name(name);
-		var parsedIdentityNumber = new IdentityNumber(Long.parseLong(identityNumber));
-		var parsedDate = LocalDate.parse(lastPaymentDate);
-		return new Member(parsedIdentityNumber, parsedName, parsedDate);
-	}
 
-	@Override
 	public Name getName() {
 		return name;
 	}
 
-	@Override
 	public IdentityNumber getIdentityNumber() {
 		return identityNumber;
 	}
@@ -36,7 +30,7 @@ public class Member implements Person {
 
 	@Override
 	public String toString() {
-		return "Member{" + "name=" + name + ", personalIdentityNumber=" + identityNumber + ", lastPaymentDate" + "=" + lastPaymentDate + '}';
+		return "member.main.Member{" + "name=" + name + ", personalIdentityNumber=" + identityNumber + ", lastPaymentDate" + "=" + lastPaymentDate + '}';
 	}
 
 	@Override

@@ -16,7 +16,7 @@ public class MemberParser {
 		int charRead;
 		scanner.useDelimiter(", |\\R");
 		while (scanner.hasNext()) {
-			var personalIdentityNumber = new PersonalIdentityNumber(scanner.nextLong());
+			var personalIdentityNumber = new IdentityNumber(scanner.nextLong());
 			var name = new Name(scanner.next());
 			var date = LocalDate.parse(scanner.next());
 			stream.add(new Member(personalIdentityNumber, name, date));

@@ -1,6 +1,6 @@
 public interface Person {
 	Name getName();
 
-	PersonalIdentityNumber getPersonalIdentityNumber();
+	IdentityNumber getIdentityNumber();
 
 }

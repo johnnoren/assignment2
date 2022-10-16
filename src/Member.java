@@ -4,13 +4,20 @@ import java.util.Objects;
 public class Member implements Person {
 
 	private final Name name;
-	private final PersonalIdentityNumber personalIdentityNumber;
+	private final IdentityNumber identityNumber;
 	private final LocalDate lastPaymentDate;
 
-	public Member(PersonalIdentityNumber personalIdentityNumber, Name name, LocalDate lastPaymentDate) {
+	private Member(IdentityNumber identityNumber, Name name, LocalDate lastPaymentDate) {
 		this.name = name;
-		this.personalIdentityNumber = personalIdentityNumber;
+		this.identityNumber = identityNumber;
 		this.lastPaymentDate = lastPaymentDate;
+	}
+
+	public Member create(String name, String identityNumber, String lastPaymentDate) {
+		var parsedName = new Name(name);
+		var parsedIdentityNumber = new IdentityNumber(Long.parseLong(identityNumber));
+		var parsedDate = LocalDate.parse(lastPaymentDate);
+		return new Member(parsedIdentityNumber, parsedName, parsedDate);
 	}
 
 	@Override
@@ -19,8 +26,8 @@ public class Member implements Person {
 	}
 
 	@Override
-	public PersonalIdentityNumber getPersonalIdentityNumber() {
-		return personalIdentityNumber;
+	public IdentityNumber getIdentityNumber() {
+		return identityNumber;
 	}
 
 	public LocalDate getLastPaymentDate() {
@@ -29,8 +36,7 @@ public class Member implements Person {
 
 	@Override
 	public String toString() {
-		return "Member{" + "name=" + name + ", personalIdentityNumber=" + personalIdentityNumber + ", lastPaymentDate" +
-				"=" + lastPaymentDate + '}';
+		return "Member{" + "name=" + name + ", personalIdentityNumber=" + identityNumber + ", lastPaymentDate" + "=" + lastPaymentDate + '}';
 	}
 
 	@Override
@@ -38,11 +44,11 @@ public class Member implements Person {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		Member member = (Member) o;
-		return name.equals(member.name) && personalIdentityNumber.equals(member.personalIdentityNumber) && lastPaymentDate.equals(member.lastPaymentDate);
+		return name.equals(member.name) && identityNumber.equals(member.identityNumber) && lastPaymentDate.equals(member.lastPaymentDate);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(name, personalIdentityNumber, lastPaymentDate);
+		return Objects.hash(name, identityNumber, lastPaymentDate);
 	}
 }

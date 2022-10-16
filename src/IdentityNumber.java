@@ -1,9 +1,9 @@
 import java.util.Objects;
 
-public class PersonalIdentityNumber {
+public class IdentityNumber {
 	private Long number;
 
-	public PersonalIdentityNumber(Long number) {
+	public IdentityNumber(Long number) {
 		this.number = number;
 	}
 
@@ -16,7 +16,7 @@ public class PersonalIdentityNumber {
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
-		PersonalIdentityNumber that = (PersonalIdentityNumber) o;
+		IdentityNumber that = (IdentityNumber) o;
 		return number.equals(that.number);
 	}
 

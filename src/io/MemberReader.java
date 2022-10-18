@@ -4,19 +4,17 @@ import main.IdentityNumber;
 import main.Member;
 import main.Name;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
-public class MemberFileReader {
+public class MemberReader implements Closeable {
 
-	private final Scanner scanner;
+	private Scanner scanner;
 
-	public MemberFileReader(String fileName) throws FileNotFoundException {
-		this.scanner = new Scanner(new BufferedReader(new FileReader(fileName)));
+	public MemberReader(Reader reader){
+			this.scanner = new Scanner(new BufferedReader(reader));
 	}
 
 	public Stream<Member> read() {
@@ -29,5 +27,10 @@ public class MemberFileReader {
 			stream.add(new Member(identityNumber, name, date));
 		}
 		return stream.build();
+	}
+
+	@Override
+	public void close() {
+		scanner.close();
 	}
 }

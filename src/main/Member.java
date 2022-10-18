@@ -24,13 +24,10 @@ public class Member {
 		return identityNumber;
 	}
 
-	public LocalDate getLastPaymentDate() {
-		return lastPaymentDate;
-	}
-
 	@Override
 	public String toString() {
-		return "member.main.Member{" + "name=" + name + ", personalIdentityNumber=" + identityNumber + ", lastPaymentDate" + "=" + lastPaymentDate + '}';
+		return identityNumber + " " + name + " " + lastPaymentDate + " <-- " + (lastPaymentDate.isAfter(LocalDate.now().minusYears(1)) ? "AKTIV" : "EJ AKTIV");
+		// TODO Test this and in the test change the localdate for testmembers when I create them. Simple solution.
 	}
 
 	@Override
@@ -44,5 +41,9 @@ public class Member {
 	@Override
 	public int hashCode() {
 		return Objects.hash(name, identityNumber, lastPaymentDate);
+	}
+
+	public boolean matches(String s) {
+		return s.equals(name.toString()) || s.equals(identityNumber.toString());
 	}
 }

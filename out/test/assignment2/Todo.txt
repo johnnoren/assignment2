@@ -1,3 +1,36 @@
+
+
+
+
+
+
+
+
+// TODO CHANGE TO A SIMPLE TO UNDERSTAND SOLUTION. I NEED TIME FOR OTHER THINGS!!! JUST MAKE IT SIMPLE AND EASY TO EXPLAIN.
+
+
+
+
+
+
+
+
+// TODO You can just check member.getName.equals(userinput) || member.getIdentitynumber.equals(userinput).
+// So it's just a pretty clear filter in the stream!!! BUT they expect a Name and IdentityNumber.
+// It kind of makes sense to ask the object, the member in this case.
+//
+
+// Can do this: member.getName.toString.equals(userInput) || member.getIdentitynumber.toString.equals(userInput);
+// Just need to make sure the toString method is good.
+// Or: member.hasName(userInput) || member.hasIdentityNumber(userInput)
+// Or: member.matches(userInput)  <- easiest to understand. It's not perfect but it doesn't have to be for this task!
+
+
+
+
+
+
+
 // TODO Use the clock solution I found in order to test stuff correctly:
 
 Man skickar en klocka som inparameter till metoden som ska testas.

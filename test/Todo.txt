@@ -15,11 +15,15 @@
 
 
 
+// TODO You can just check member.getName.equals(userinput) || member.getIdentitynumber.equals(userinput).
+// So it's just a pretty clear filter in the stream!!! BUT they expect a Name and IdentityNumber.
+// It kind of makes sense to ask the object, the member in this case.
+//
 
-
-
-
-
+// Can do this: member.getName.toString.equals(userInput) || member.getIdentitynumber.toString.equals(userInput);
+// Just need to make sure the toString method is good.
+// Or: member.hasName(userInput) || member.hasIdentityNumber(userInput)
+// Or: member.matches(userInput)  <- easiest to understand. It's not perfect but it doesn't have to be for this task!
 
 
 

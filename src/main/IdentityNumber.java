@@ -3,7 +3,7 @@ package main;
 import java.util.Objects;
 
 public class IdentityNumber {
-	private Long number;
+	private final Long number;
 
 	public IdentityNumber(Long number) {
 		this.number = number;

@@ -1,3 +1,5 @@
+package main;
+
 import main.IdentityNumber;
 import org.junit.jupiter.api.Test;
 

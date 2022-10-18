@@ -25,7 +25,8 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return identityNumber + " " + name + " " + lastPaymentDate + " <-- " + (lastPaymentDate.isAfter(LocalDate.now().minusYears(1).minusDays(1)) ? "AKTIV" : "EJ AKTIV") + "\n";
+		return identityNumber + " " + name + " " + lastPaymentDate + " <-- "
+				+ (lastPaymentDate.isAfter(LocalDate.now().minusYears(1).minusDays(1)) ? "AKTIV" : "EJ AKTIV") + "\n";
 	}
 
 	@Override
@@ -37,7 +38,8 @@ public class Member {
 			return false;
 		}
 		Member member = (Member) o;
-		return name.equals(member.name) && identityNumber.equals(member.identityNumber) && lastPaymentDate.equals(member.lastPaymentDate);
+		return name.equals(member.name) && identityNumber.equals(member.identityNumber)
+				&& lastPaymentDate.equals(member.lastPaymentDate);
 	}
 
 	@Override

@@ -20,7 +20,6 @@ public class BestGymEver {
 
 			System.out.println("Ange namn eller personnummer: ");
 			var userInput = new Scanner(System.in).nextLine();
-			;
 			memberFileReader.read()
 					.filter(member -> member.matches(userInput))
 					.peek(member -> System.out.println("Hittade medlem: " + member))

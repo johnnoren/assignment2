@@ -23,8 +23,7 @@ public class BestGymEver {
 			memberFileReader.read()
 					.filter(member -> member.matches(userInput))
 					.peek(member -> System.out.println("Hittade medlem: " + member))
-					.filter((Member::isActive))
-					.peek(workoutFileWriter::write)
+					.peek((member -> {if (member.isActive()) workoutFileWriter.write(member);}))
 					.findAny().ifPresentOrElse((m) -> System.out.println("Inga fler medlemmar matchade."),
 									() -> System.out.println("Ingen medlem matchade."));
 		} catch (Exception e) {

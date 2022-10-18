@@ -6,7 +6,7 @@ import java.io.*;
 import java.time.LocalDate;
 
 public class WorkoutWriter implements Closeable {
-	private BufferedWriter writer;
+	private final BufferedWriter writer;
 
 	public WorkoutWriter(Writer writer) {
 		this.writer = new BufferedWriter(writer);
@@ -20,10 +20,8 @@ public class WorkoutWriter implements Closeable {
 			writer.flush();
 		} catch (IOException e) {
 			System.out.println("Det gick inte att skriva till filen.");
-			;
 			System.exit(1);
 		}
-		;
 	}
 
 	@Override

@@ -16,8 +16,12 @@ public class IdentityNumber {
 
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
 		IdentityNumber that = (IdentityNumber) o;
 		return number.equals(that.number);
 	}

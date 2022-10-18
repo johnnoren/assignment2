@@ -14,15 +14,17 @@ public class BestGymEver {
 
 	private void run() {
 		try (
-				var memberFileReader = new MemberReader(new FileReader("src/customers.txt"));
-				var workoutFileWriter = new WorkoutWriter(new FileWriter("src/workouts.txt"))
+				var memberFileReader = new MemberReader(new FileReader("src/resources/customers.txt"));
+				var workoutFileWriter = new WorkoutWriter(new FileWriter("src/resources/workouts.txt", true))
 		) {
 
 			System.out.println("Ange namn eller personnummer: ");
-			var userInput = new Scanner(System.in).nextLine();;
+			var userInput = new Scanner(System.in).nextLine();
+			;
 			memberFileReader.read()
 					.filter(member -> member.matches(userInput))
 					.peek(member -> System.out.println("Hittade medlem: " + member))
+					.filter((Member::isActive))
 					.peek(workoutFileWriter::write)
 					.findAny().ifPresentOrElse((m) -> System.out.println("Inga fler medlemmar matchade."),
 									() -> System.out.println("Ingen medlem matchade."));

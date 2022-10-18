@@ -11,15 +11,15 @@ import java.util.stream.Stream;
 
 public class MemberReader implements Closeable {
 
-	private Scanner scanner;
+	private final Scanner scanner;
 
-	public MemberReader(Reader reader){
-			this.scanner = new Scanner(new BufferedReader(reader));
+	public MemberReader(Reader reader) {
+		this.scanner = new Scanner(new BufferedReader(reader));
 	}
 
 	public Stream<Member> read() {
 		Stream.Builder<Member> stream = Stream.builder();
-		scanner.useDelimiter(", |\\R");
+		scanner.useDelimiter(", |\\R+");
 		while (scanner.hasNext()) {
 			var identityNumber = new IdentityNumber(scanner.nextLong());
 			var name = new Name(scanner.next());

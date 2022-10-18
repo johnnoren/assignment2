@@ -1,16 +1,15 @@
 package main;
 
 import main.IdentityNumber;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class IdentityNumberTest {
-	// TODO Test all public methods, including toString, equals etc.
 
 	IdentityNumber identityNumber = new IdentityNumber(1234567890L);
 	@Test
+	@DisplayName("An identity number can be converted into a string.")
 	void toStringTest() {
-		assert identityNumber.toString()
-							 .equals("1234567890");
-
+		assert identityNumber.toString().equals("1234567890");
 	}
 }

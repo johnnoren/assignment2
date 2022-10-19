@@ -28,8 +28,8 @@ class WorkoutWriterTest {
 		// When
 		workoutWriter.write(new Member(new IdentityNumber(7502031234L), new Name("Anna Andersson"), LocalDate.parse(
 				"2022-05-03")));
-		workoutWriter.write(new Member(new IdentityNumber(8505132345L), new Name("Per Persson"), LocalDate.parse(
-				"2019" + "-12-29")));
+		workoutWriter.write(new Member(new IdentityNumber(8505132345L), new Name("Per Persson"), LocalDate.parse("2019"
+				+ "-12-29")));
 
 		var resultFromWriting = stringWriter.toString();
 

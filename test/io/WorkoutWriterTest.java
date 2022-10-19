@@ -20,15 +20,16 @@ class WorkoutWriterTest {
 	@DisplayName("A workout can be written to file.")
 	void writeTest() {
 		// Given
-		var wantedOutput = "Workout: 7502031234, Anna Andersson, 2022-10-18\nWorkout: 8505132345, Per Persson, " +
-				"2022-10-18\n";
+		var wantedOutput =
+				"Workout: 7502031234, Anna Andersson, " + LocalDate.now() + "\nWorkout: 8505132345, Per " + "Persson, "
+						+ LocalDate.now() + "\n";
 		workoutWriter = new WorkoutWriter(stringWriter);
 
 		// When
 		workoutWriter.write(new Member(new IdentityNumber(7502031234L), new Name("Anna Andersson"), LocalDate.parse(
-				"2022-05" + "-03")));
-		workoutWriter.write(new Member(new IdentityNumber(8505132345L), new Name("Per Persson"), LocalDate.parse("2019" +
-				"-12-29")));
+				"2022-05-03")));
+		workoutWriter.write(new Member(new IdentityNumber(8505132345L), new Name("Per Persson"), LocalDate.parse(
+				"2019" + "-12-29")));
 
 		var resultFromWriting = stringWriter.toString();
 
